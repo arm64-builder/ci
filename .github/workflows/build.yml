@@ -99,7 +99,7 @@ jobs:
         repo init -u https://github.com/mer-hybris/android.git -b hybris-14.1 --depth=1
         repo sync -j8 -c --no-clone-bundle --no-tags
         git clone https://github.com/piggz/android_device_xiaomi_mido.git $ANDROID_ROOT/device/xiaomi/mido --depth=1 
-        git clone https://github.com/aospa-mido/android_vendor_xiaomi_mido.git $ANDROID_ROOT/vendor/xiaomi/mido --depth=1
+        git clone -b cm-14.1 https://gitlab.com/the-muppets/proprietary_vendor_xiaomi/mido.git $ANDROID_ROOT/vendor/xiaomi/mido --depth=1
         git clone https://github.com/Sailfish-On-Vince/Xiaomi_Kernel_OpenSource.git $ANDROID_ROOT/kernel/xiaomi/msm8953 --depth=1
     
     - name: Clone device spec source
