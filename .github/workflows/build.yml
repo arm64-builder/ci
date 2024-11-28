@@ -74,8 +74,8 @@ jobs:
         mkdir -p ~/bin
         wget 'https://storage.googleapis.com/git-repo-downloads/repo' -P ~/bin
         chmod +x ~/bin/repo
-        git config --global user.name "BirdZhang"
-        git config --global user.email "0312birdzhang@gmail.com"
+        git config --global user.name "gmicroul"
+        git config --global user.email "microul@gmail.com"
 
     - name: Cache repo directory
       uses: actions/cache@v3
@@ -98,8 +98,8 @@ jobs:
         cd $ANDROID_ROOT
         repo init -u https://github.com/mer-hybris/android.git -b hybris-14.1 --depth=1
         repo sync -j8 -c --no-clone-bundle --no-tags
-        git clone https://github.com/Sailfish-On-Vince/device_xiaomi_mido.git $ANDROID_ROOT/device/xiaomi/mido --depth=1 
-        git clone https://github.com/Sailfish-On-Vince/vendor_xiaomi_mido.git $ANDROID_ROOT/vendor/xiaomi/mido --depth=1
+        git clone https://github.com/piggz/android_device_xiaomi_mido.git $ANDROID_ROOT/device/xiaomi/mido --depth=1 
+        git clone https://github.com/aospa-mido/android_vendor_xiaomi_mido.git $ANDROID_ROOT/vendor/xiaomi/mido --depth=1
         git clone https://github.com/Sailfish-On-Vince/Xiaomi_Kernel_OpenSource.git $ANDROID_ROOT/kernel/xiaomi/msm8953 --depth=1
     
     - name: Clone device spec source
@@ -110,9 +110,9 @@ jobs:
         rm -rf $ANDROID_ROOT/hybris/hybris-boot
         git clone https://github.com/Sailfish-On-Vince/hybris-boot.git $ANDROID_ROOT/hybris/hybris-boot
         git clone https://github.com/Sailfish-On-Vince/hybris-installer.git $ANDROID_ROOT/hybris/hybris-installer
-        git clone --recurse-submodules https://github.com/Sailfish-On-Vince/droid-hal-mido.git $ANDROID_ROOT/rpm 
-        git clone --recurse-submodules https://github.com/Sailfish-On-Vince/droid-config-mido.git $ANDROID_ROOT/hybris/droid-configs
-        git clone --recurse-submodules https://github.com/Sailfish-On-Vince/droid-hal-version-mido.git $ANDROID_ROOT/hybris/droid-hal-version-mido
+        git clone --recurse-submodules https://github.com/piggz/droid-hal-mido.git $ANDROID_ROOT/rpm 
+        git clone --recurse-submodules https://github.com/piggz/droid-config-mido.git $ANDROID_ROOT/hybris/droid-configs
+        git clone --recurse-submodules https://github.com/piggz/droid-hal-version-mido.git $ANDROID_ROOT/hybris/droid-hal-version-mido
         rm -rf $ANDROID_ROOT/external/droidmedia
         git clone https://github.com/sailfishos/droidmedia.git $ANDROID_ROOT/external/droidmedia
 
