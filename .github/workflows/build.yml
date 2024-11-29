@@ -100,6 +100,7 @@ jobs:
         repo sync -j8 -c --no-clone-bundle --no-tags
         git clone https://github.com/piggz/android_device_xiaomi_mido.git $ANDROID_ROOT/device/xiaomi/mido --depth=1 
         git clone -b cm-14.1 https://gitlab.com/the-muppets/proprietary_vendor_xiaomi.git $ANDROID_ROOT/vendor/xiaomi --depth=1
+        https://github.com/piggz/android_kernel_xiaomi_msm8953/commits/pgz-14.1-eb8
         git clone -b mido-m-oss https://github.com/MiCode/Xiaomi_Kernel_OpenSource.git $ANDROID_ROOT/kernel/xiaomi/msm8953 --depth=1
     
     - name: Clone device spec source
