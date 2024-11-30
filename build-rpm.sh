@@ -13,9 +13,9 @@ cp -R SailfishOS-*-$PORT_ARCH $VENDOR-$DEVICE-$PORT_ARCH
 cd $VENDOR-$DEVICE-$PORT_ARCH
 sed -i "s/SailfishOS-$SAILFISH_VERSION/$VENDOR-$DEVICE/g" sb2.config
 sudo ln -s /srv/mer/targets/SailfishOS-$SAILFISH_VERSION-$PORT_ARCH /srv/mer/targets/$VENDOR-$DEVICE-$PORT_ARCH
-sudo ls -ltrh /srv/mer/targets/SailfishOS-$SAILFISH_VERSION-$PORT_ARCH/ 
+sudo ls -ltrh /srv/mer/targets/SailfishOS-$SAILFISH_VERSION-$PORT_ARCH 
 sudo ln -s /srv/mer/toolings/SailfishOS-$SAILFISH_VERSION /srv/mer/toolings/$VENDOR-$DEVICE
-sudo ls -ltrh /srv/mer/toolings/SailfishOS-$SAILFISH_VERSION/
+sudo ls -ltrh /srv/mer/toolings/SailfishOS-$SAILFISH_VERSION
 
 # 3.3.0.16 hack
 sudo zypper in -y kmod ccache
