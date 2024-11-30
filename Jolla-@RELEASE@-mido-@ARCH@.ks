@@ -22,6 +22,7 @@ repo --name=jolla-@RELEASE@ --baseurl=https://releases.jolla.com/releases/@RELEA
 
 %packages
 #@Jolla Configuration mido
+qt5-qttools-kmap2qmap
 patterns-sailfish-device-configuration-mido
 %end
 
