@@ -11,6 +11,8 @@ cd $ANDROID_ROOT
 cd ~/.scratchbox2
 cp -R SailfishOS-*-$PORT_ARCH $VENDOR-$DEVICE-$PORT_ARCH
 cd $VENDOR-$DEVICE-$PORT_ARCH
+pwd
+sudo ls -ltrh
 sed -i "s/SailfishOS-$SAILFISH_VERSION/$VENDOR-$DEVICE/g" sb2.config
 sudo ln -s /srv/mer/targets/SailfishOS-$SAILFISH_VERSION-$PORT_ARCH /srv/mer/targets/$VENDOR-$DEVICE-$PORT_ARCH
 sudo ls -ltrh /srv/mer/targets/SailfishOS-$SAILFISH_VERSION-$PORT_ARCH 
