@@ -26,5 +26,5 @@ echo 'AUDIOPOLICYSERVICE_ENABLE := 1' >> external/droidmedia/env.mk
 make -j$(nproc --all) hybris-hal droidmedia
 
 # Add mido lost libs
-git clone https://github.com/Sailfish-On-Vince/lostlibs.git device/xiaomi/mido/lostlibs 
+# git clone https://github.com/Sailfish-On-Vince/lostlibs.git device/xiaomi/mido/lostlibs 
 cp device/xiaomi/mido/lostlibs/*.so out/target/product/mido/system/lib/
