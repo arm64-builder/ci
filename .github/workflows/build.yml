@@ -4,11 +4,14 @@
 # Author: 0312birdzhang
 #=================================================
 
-name: Build SailfishOS dhd-mido-zhang
+name: Build SailfishOS dhd
 
-on:
-  repository_dispatch:
-  workflow_dispatch:
+on: 
+  release:
+    types: [published]
+  push:
+    branches: 
+      - mido
 
 permissions:
   contents: write
@@ -70,8 +73,6 @@ jobs:
         libxml2 libxml2-utils lzop pngcrush rsync schedtool squashfs-tools xsltproc yasm zip zlib1g-dev \
         qemu-user-static qemu-system-arm e2fsprogs simg2img \
         libtinfo5 libncurses5 gzip virtualenv git python2
-
-
     - name: Download repo bin file
       run: |
         mkdir -p ~/bin
@@ -79,8 +80,6 @@ jobs:
         chmod +x ~/bin/repo
         git config --global user.name "BirdZhang"
         git config --global user.email "0312birdzhang@gmail.com"
-
-
     - name: Downloading source code
       run: |
         source hadk.env
@@ -107,7 +106,6 @@ jobs:
         git clone --recurse-submodules https://github.com/piggz/droid-hal-version-mido.git $ANDROID_ROOT/hybris/droid-hal-version-mido
         rm -rf $ANDROID_ROOT/external/droidmedia
         git clone https://github.com/sailfishos/droidmedia.git $ANDROID_ROOT/external/droidmedia
-
     - name: Cache build output
       uses: actions/cache@v3
       id: build-cache
@@ -116,7 +114,6 @@ jobs:
         key: build-hal-${{ hashFiles('kernel/xiaomi/msm8953/arch/arm64/configs/mido_defconfig') }}
         restore-keys: |
           build-hal-
-
     - name: Build HAL
       if: steps.build-cache.outputs.cache-hit != 'true'
       run: |
@@ -143,9 +140,3 @@ jobs:
       with:
         name: sailfishos.zip
         path: ${{env.ANDROID_ROOT}}/SailfishOScommunity-release-*/sailfishos-*-${{env.DEVICE}}*.zip
-
-    - name: Release
-      uses: softprops/action-gh-release@v2
-      if: startsWith(github.ref, 'refs/tags/')
-      with:
-        files: ${{env.ANDROID_ROOT}}/SailfishOScommunity-release-*/sailfishos-*-${{env.DEVICE}}*.zip
